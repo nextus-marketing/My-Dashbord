@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'Frontend.home')->name('home');
 
+Route::fallback(function () {
+    return response()->view('Error.404', [], 404);
+});
+
 require __DIR__.'/auth.php';
 require __DIR__.'/backend.php';
 require __DIR__.'/frontend.php';
